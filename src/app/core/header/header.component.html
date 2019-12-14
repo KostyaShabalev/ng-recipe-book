@@ -5,8 +5,9 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    TODO: Enhance header
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="test">sdfsdf</div>
+
+    <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
 
             <li class="nav-item" routerLinkActive="active">
@@ -17,19 +18,16 @@
                 <a class="nav-link" routerLink="/shopping-list">Shopping List</a>
             </li>
 
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            <li class="dropdown" appDropdown>
+                <a class="nav-link dropdown-toggle dropdown-button" id="navbarDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                    Dropdown
+                    Manage
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <a class="dropdown-item" href="#">Fetch</a>
+                    <a class="dropdown-item" href="#">Save</a>
                 </div>
             </li>
-            
         </ul>
     </div>
 </nav>

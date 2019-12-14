@@ -18,6 +18,7 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
 import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
+import { DropdownDirective } from './shared/directives/dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PageNotFoundComponent } from './shared/components/page-not-found/page-n
     RecipeEditComponent,
     RecipeDetailComponent,
     RecipeListComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,
