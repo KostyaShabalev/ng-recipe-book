@@ -12,7 +12,6 @@ import { PageNotFoundComponent } from './shared/components/page-not-found/page-n
 const appRoutes: Routes = [
     // { path: '', component: HomeComponent },
     // { path: 'recipes', loadChildren: './recipes/recipes.module#RecipesModule' },
-    // { path: 'shopping-list', component: ShoppingListComponent },
     { path: '', redirectTo: '/recipes', pathMatch: 'full' },
     {
         path: 'recipes', component: RecipesComponent, children: [
@@ -22,6 +21,7 @@ const appRoutes: Routes = [
             { path: ':id/edit', component: RecipeEditComponent },
         ]
     },
+    { path: 'shopping-list', component: ShoppingListComponent },
     { path: 'not-found', component: PageNotFoundComponent },
     { path: '**', redirectTo: '/not-found' }
 ];

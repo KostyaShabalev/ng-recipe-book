@@ -1,6 +1,5 @@
-
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { AuthModule } from './auth/auth.module';
 import { SharedeModule } from './shared/shared.module';
@@ -21,6 +20,9 @@ import { PageNotFoundComponent } from './shared/components/page-not-found/page-n
 import { DropdownDirective } from './shared/directives/dropdown.directive';
 import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
+import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { ShoppingListService } from './shopping-list/shopping-list.service';
     RecipeListComponent,
     PageNotFoundComponent,
     DropdownDirective,
-    RecipeItemComponent
+    RecipeItemComponent,
+    ShoppingListComponent,
+    ShoppingEditComponent
   ],
   imports: [
     BrowserModule,
