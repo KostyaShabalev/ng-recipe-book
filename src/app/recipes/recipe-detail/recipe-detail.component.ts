@@ -1,4 +1,5 @@
-import { Component, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { Recipe } from './../../shared/models/recipe.model';
 import { RecipeService } from '../recipe.service';
@@ -8,18 +9,32 @@ import { RecipeService } from '../recipe.service';
   templateUrl: './recipe-detail.component.html',
   styleUrls: ['./recipe-detail.component.scss']
 })
-export class RecipeDetailComponent implements OnDestroy {
-  @Input() recipe: Recipe;
+export class RecipeDetailComponent implements OnInit {
+  public recipe: Recipe;
 
-  constructor(private recipeService: RecipeService) { }
+  private id: number;
 
-  ngOnDestroy() {
-    console.log(123);
-    
-  }
+  constructor(
+    private recipeService: RecipeService,
+    private router: Router,
+    private route: ActivatedRoute) { }
+
+    ngOnInit() {
+      this.route.params
+        .subscribe(
+          (params: Params) => {
+            this.id = +params['id'];
+            this.recipe = this.recipeService.getSingleRecipe(this.id);
+          }
+        );
+    }
 
   onAddToShoppingList() {
     this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients);
+  }
+
+  onEditRecipe() {
+    this.router.navigate(['edit'], {relativeTo: this.route});
   }
 
 }
