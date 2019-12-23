@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-import { AuthModule } from './auth/auth.module';
-import { SharedeModule } from './shared/shared.module';
-import { RecipesModule } from './recipes/recipes.module';
-import { CoreModule } from './core/core.module';
-import { ShoppingListModule } from './shopping-list/shopping-list.module';
+// import { AuthModule } from './auth/auth.module';
+// import { SharedeModule } from './shared/shared.module';
+// import { RecipesModule } from './recipes/recipes.module';
+// import { CoreModule } from './core/core.module';
+// import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -44,6 +45,8 @@ import { RecipeService } from './recipes/recipe.service';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     // CoreModule,
     // AuthModule,
