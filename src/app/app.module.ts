@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-import { AuthModule } from './auth/auth.module';
-import { SharedeModule } from './shared/shared.module';
-import { RecipesModule } from './recipes/recipes.module';
-import { CoreModule } from './core/core.module';
-import { ShoppingListModule } from './shopping-list/shopping-list.module';
+// import { AuthModule } from './auth/auth.module';
+// import { SharedeModule } from './shared/shared.module';
+// import { RecipesModule } from './recipes/recipes.module';
+// import { CoreModule } from './core/core.module';
+// import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -22,6 +24,7 @@ import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-it
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
+import { RecipeService } from './recipes/recipe.service';
 
 
 @NgModule({
@@ -42,6 +45,9 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     // CoreModule,
     // AuthModule,
     // SharedeModule,
@@ -49,7 +55,7 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
     // ShoppingListModule,
     AppRoutingModule
   ],
-  providers: [ShoppingListService],
+  providers: [ShoppingListService, RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
