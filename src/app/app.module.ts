@@ -7,13 +7,12 @@ import { AppRoutingModule } from './app-routing.module';
 import {RecipesModule} from './recipes/recipes.module';
 import {ShoppingListModule} from './shopping-list/shopping-list.module';
 import {SharedeModule} from './shared/shared.module';
+import {CoreModule} from './core/core.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './core/home/home.component';
 import { HeaderComponent } from './core/header/header.component';
-import { ShoppingListService } from './shopping-list/shopping-list.service';
-import { RecipeService } from './recipes/recipe.service';
-import { AuthInterceptorService } from './auth/auth-interceptor.service';
+import {AuthModule} from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -29,16 +28,9 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
     AppRoutingModule,
     RecipesModule,
     ShoppingListModule,
-    SharedeModule
-  ],
-  providers: [
-    ShoppingListService,
-    RecipeService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptorService,
-      multi: true
-    }
+    SharedeModule,
+    CoreModule,
+    AuthModule
   ],
   bootstrap: [AppComponent]
 })

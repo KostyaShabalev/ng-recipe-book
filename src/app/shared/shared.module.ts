@@ -6,7 +6,6 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import {AlertComponent} from './components/alert/alert.component';
 import {LoadingSpinnerComponent} from './components/loading-spinner/loading-spinner.component';
 import {DropdownDirective} from './directives/dropdown.directive';
-import {AuthComponent} from '../auth/auth.component';
 import {FormsModule} from '@angular/forms';
 
 @NgModule({
@@ -15,7 +14,6 @@ import {FormsModule} from '@angular/forms';
     AlertComponent,
     LoadingSpinnerComponent,
     DropdownDirective,
-    AuthComponent
   ],
   imports: [
     FormsModule,
@@ -26,7 +24,6 @@ import {FormsModule} from '@angular/forms';
     AlertComponent,
     LoadingSpinnerComponent,
     DropdownDirective,
-    AuthComponent,
     CommonModule,
     FormsModule
   ]

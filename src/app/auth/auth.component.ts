@@ -14,7 +14,7 @@ export class AuthComponent implements OnDestroy {
     public isLoading = false;
     public error: string = '';
 
-    private isLoginMode = true;
+    public isLoginMode = true;
     private authObservable: Observable<AuthResponseData>;
     private authObservableSubscription: Subscription;
 
