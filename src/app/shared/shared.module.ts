@@ -3,11 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutModule } from '@angular/cdk/layout';
 
-import { ShellComponent } from './shell/shell.component';
-
-const components = [
-    ShellComponent
-];
+// const components = [];
 
 const modules = [
     CommonModule,
@@ -16,10 +12,10 @@ const modules = [
 ];
 
 @NgModule({
-    declarations: [...components],
+    // declarations: [...components],
     imports: [...modules],
     exports: [
-        ...components,
+        // ...components,
         ...modules
     ]
 })
