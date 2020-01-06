@@ -1,0 +1,78 @@
+<mat-sidenav-container class="sidenav-container">
+
+    <mat-sidenav
+        #drawer
+        class="sidenav"
+        fixedInViewport
+        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'"
+        [opened]="false"
+    >
+
+        <mat-toolbar>
+            <span >Menu</span>
+                <button
+                    class="close-sidenav-button"
+                    aria-label="Close sidenav"
+                    type="button"
+                    mat-icon-button
+                    autofocus="false"
+                    (click)="drawer.close()"
+                >
+                    <mat-icon aria-label="Side nav close icon">chevron_left</mat-icon>
+                </button>
+        </mat-toolbar>
+
+        <mat-nav-list>
+            <a href="#" mat-list-item (click)="drawer.close()">Recipes</a>
+            <a href="#" mat-list-item (click)="drawer.close()">Shopping List</a>
+            <a href="#" mat-list-item (click)="drawer.close()">Login</a>
+        </mat-nav-list>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content class="sidenav-content">
+
+        <mat-toolbar>
+
+            <button
+                type="button"
+                aria-label="Toggle sidenav"
+                mat-icon-button
+                (click)="drawer.toggle()"
+                *ngIf="isHandset$ | async"
+            >
+                <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+
+            <span class="logo">🍔 Recipe Book</span>
+
+            <span class="fill-space"></span>
+
+            <div class="nav-links" *ngIf="!(isHandset$ | async)">
+                <a mat-button>Recipes</a>
+                <a mat-button>Shopping List</a>
+                <a mat-button>Login</a>
+            </div>
+
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Icon button with a menu">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+
+            <mat-menu #menu="matMenu">
+                <a mat-menu-item href="#">
+                    <span>Menu item #1</span>
+                </a>
+                <a mat-menu-item href="#">
+                    <span>Menu item #2</span>
+                </a>
+                <a mat-menu-item href="#">
+                    <span>Menu item #3</span>
+                </a>
+            </mat-menu>
+
+        </mat-toolbar>
+
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

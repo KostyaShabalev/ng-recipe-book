@@ -1,0 +1,29 @@
+.sidenav-container {
+  height: 100%;
+
+  .sidenav {
+    width: 200px;
+
+    .mat-toolbar {
+      background: inherit;
+
+      .close-sidenav-button {
+        position: absolute;
+        top: 7px;
+        right: 10px;
+      }
+    }
+  }
+
+  .sidenav-content {
+    .logo {
+      font-size: 1.2em;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .fill-space {
+      flex: 1 1 auto;
+    }
+  }
+}
