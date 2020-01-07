@@ -24,9 +24,14 @@
         </mat-toolbar>
 
         <mat-nav-list>
-            <a href="#" mat-list-item (click)="drawer.close()">Recipes</a>
-            <a href="#" mat-list-item (click)="drawer.close()">Shopping List</a>
-            <a href="#" mat-list-item (click)="drawer.close()">Login</a>
+            <a mat-list-item
+               routerLink="/recipes"
+               routerLinkActive="active"
+               [routerLinkActiveOptions]="{exact: true}"
+               (click)="drawer.close()"
+            >Recipes</a>
+            <a mat-list-item routerLink="/shopping-list" routerLinkActive="active" (click)="drawer.close()">Shopping List</a>
+            <a mat-list-item routerLink="/login" routerLinkActive="active" (click)="drawer.close()">Login</a>
         </mat-nav-list>
 
     </mat-sidenav>
@@ -47,11 +52,14 @@
 
             <span class="logo">🍔 Recipe Book</span>
 
+            <div class="nav-links" *ngIf="!(isHandset$ | async)">
+                <a mat-button routerLink="/recipes" routerLinkActive="active">Recipes</a>
+                <a mat-button routerLink="/shopping-list" routerLinkActive="active">Shopping List</a>
+            </div>
+
             <span class="fill-space"></span>
 
             <div class="nav-links" *ngIf="!(isHandset$ | async)">
-                <a mat-button>Recipes</a>
-                <a mat-button>Shopping List</a>
                 <a mat-button>Login</a>
             </div>
 
@@ -72,6 +80,8 @@
             </mat-menu>
 
         </mat-toolbar>
+
+        <ng-content></ng-content>
 
     </mat-sidenav-content>
 
