@@ -20,6 +20,17 @@
       font-size: 1.2em;
       cursor: pointer;
       outline: none;
+      margin-right: 0.7rem;
+    }
+
+    .nav-links {
+      a {
+        color: rgba(0, 0, 0, 0.6);
+
+        &.active {
+          color: inherit;
+        }
+      }
     }
 
     .fill-space {
