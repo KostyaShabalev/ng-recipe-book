@@ -1,8 +1,8 @@
-<mat-grid-list cols="2">
-    <mat-grid-tile>
+<div class="recipes-main-container" fxLayout="row">
+    <div class="recipe-list-container" fxFlex="50">
         <app-recipe-list></app-recipe-list>
-    </mat-grid-tile>
-    <mat-grid-tile>
+    </div>
+    <div class="recipe-views-container" fxFlex="50">
         <router-outlet></router-outlet>
-    </mat-grid-tile>
-</mat-grid-list>
+    </div>
+</div>

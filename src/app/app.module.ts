@@ -10,6 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 // Components
 import { AppComponent } from './app.component';
 
+// import {DataStorageService} from './shared/services/data-storage.service'; //TODO: remove
+
 const components = [
   AppComponent
 ];
