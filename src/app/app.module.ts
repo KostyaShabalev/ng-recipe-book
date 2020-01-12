@@ -13,26 +13,27 @@ import { AppComponent } from './app.component';
 // import {DataStorageService} from './shared/services/data-storage.service'; //TODO: remove
 
 const components = [
-  AppComponent
+    AppComponent
 ];
 
 const modules = [
-  BrowserModule,
-  BrowserAnimationsModule,
-  AppRoutingModule,
-  SharedModule,
-  ReipesModule,
-  ShoppingListModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    SharedModule,
+    ReipesModule,
+    ShoppingListModule,
+    CoreModule
 ];
 
 @NgModule({
-  declarations: [
-    ...components
-  ],
-  imports: [
-    ...modules
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        ...components
+    ],
+    imports: [
+        ...modules
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
