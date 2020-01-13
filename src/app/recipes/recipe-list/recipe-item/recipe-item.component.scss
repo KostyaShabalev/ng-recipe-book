@@ -1,11 +1,27 @@
-.recipe-card {
+a.recipe-item-link {
+    text-decoration: none;
+
     &:hover {
         cursor: pointer;
-        background-color: #f6f6f6;
-        border: 1px solid #cccccc;
+
+        .recipe-card {
+            background-color: #f6f6f6;
+            border-color: #cccccc;
+        }
     }
 
-    .img-container {
-        text-align: center;
+    &.active {
+        .recipe-card {
+            background-color: #cccccc;
+            border-color: #cccccc;
+        }
+    }
+
+    .recipe-card {
+        border: 1px solid #f6f6f6;
+
+        .img-container {
+            text-align: center;
+        }
     }
 }
