@@ -13,6 +13,10 @@
         .list-item {
             height: auto;
             margin-bottom: 10px;
+
+            app-recipe-item {
+                width: 100%;
+            }
         }
     }
 }
