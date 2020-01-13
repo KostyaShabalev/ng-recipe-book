@@ -1,0 +1,11 @@
+.recipe-card {
+    &:hover {
+        cursor: pointer;
+        background-color: #f6f6f6;
+        border: 1px solid #cccccc;
+    }
+
+    .img-container {
+        text-align: center;
+    }
+}

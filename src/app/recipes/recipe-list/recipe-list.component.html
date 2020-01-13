@@ -7,8 +7,11 @@
 
     <div class="recipe-list">
         <mat-list>
-            <mat-list-item *ngFor="let recipeItem of recipes, let i = index">
-                <h3>{{ recipeItem.name }}</h3>
+            <mat-list-item class="list-item" *ngFor="let recipeItem of recipes, let i = index">
+                <app-recipe-item
+                    [recipe]="recipeItem"
+                    [index]="i"
+                ></app-recipe-item>
             </mat-list-item>
         </mat-list>
     </div>
