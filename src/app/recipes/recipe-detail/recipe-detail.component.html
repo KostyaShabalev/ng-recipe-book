@@ -1,1 +1,24 @@
-<p>recipe-detail works!</p>
+<div class="recipe-detail-container">
+    <div class="recipe-image-container">
+        <img [src]="recipe.imagePath" [alt]="recipe.name">
+    </div>
+
+    <div class="recipe-detail">
+        <div class="recipe-detail-info">
+        <h1>{{ recipe.name }}</h1>
+        <p>{{ recipe.description }}</p>
+        </div>
+        <div class="recipe-detail-manage">
+            <button mat-stroked-button>Manage Recipe</button>
+        </div>
+    </div>
+
+    <div class="recipe-ingredients">
+        <h3>Ingredients:</h3>
+        <mat-list role="list">
+            <mat-list-item role="listitem" *ngFor="let ingredient of recipe.ingredients">
+                <span>{{ ingredient.name }} - {{ ingredient.amount }}</span>
+            </mat-list-item>
+          </mat-list>
+    </div>
+</div>
