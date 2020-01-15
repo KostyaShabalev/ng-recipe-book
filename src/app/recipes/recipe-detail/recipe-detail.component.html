@@ -9,7 +9,12 @@
         <p>{{ recipe.description }}</p>
         </div>
         <div class="recipe-detail-manage">
-            <button mat-stroked-button>Manage Recipe</button>
+            <button mat-stroked-button [matMenuTriggerFor]="menu">Manage Recipe</button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>To Shopping List</button>
+                <button mat-menu-item>Edit Recipe</button>
+                <button mat-menu-item>Delete Recipe</button>
+            </mat-menu>
         </div>
     </div>
 
