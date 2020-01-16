@@ -1,0 +1,13 @@
+.recipe-edit-container {
+    .recipe-info-image {
+        img {
+            max-width: 30%;
+        }
+    }
+
+    .recipe-info-ingredients {
+        .mat-form-field {
+            margin-right: 10px;
+        }
+    }
+}

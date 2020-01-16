@@ -2,24 +2,46 @@
     <div class="recipe-info">
         <!-- Name -->
         <div class="recipe-info-name">
-            <label for="name">Name</label>
-            <input type="text"
-                   id="name"
-                   class="recipe-name-input">
-        </div>
-        <!-- Description -->
-        <div class="recipe-info-description">
-            <label for="description">Description</label>
-            <input type="text"
-                   id="description"
-                   class="recipe-description-input">
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input
+                    matInput
+                    class="recipe-name-input"
+                    type="text"
+                    id="name"
+                    placeholder="Name"
+                />
+            </mat-form-field>
         </div>
         <!-- Image Path -->
         <div class="recipe-info-image-path">
-            <label for="image-path">Image Path</label>
-            <input type="text"
-                   id="image-path"
-                   class="recipe-image-path-input">
+            <mat-form-field>
+                <input
+                    matInput
+                    class="recipe-image-path-input"
+                    type="text"
+                    id="image-path"
+                    placeholder="Image path"
+                />
+            </mat-form-field>
+        </div>
+        <!-- Image -->
+        <div class="recipe-info-image">
+            <!-- <img [src]="recipe.imagePath" alt="Recipe Image"> -->
+            <img src="https://img.buzzfeed.com/video-api-prod/assets/eb44570519264864814264f7f0a5e47a/BFV13909_BakedRatatouille-ThumbTextless1080.jpg" alt="Recipe Image">
+        </div>
+        <!-- Description -->
+        <div class="recipe-info-description">
+            <mat-form-field>
+                <textarea
+                    matInput
+                    class="recipe-description-input"
+                    type="text"
+                    id="description"
+                    placeholder="Description"
+                    cdkTextareaAutosize
+                ></textarea>
+            </mat-form-field>
         </div>
         <!-- Ingredients -->
         <div class="recipe-info-ingredients">
@@ -27,20 +49,24 @@
                 <mat-expansion-panel>
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            Personal data
+                            Ingredient
                         </mat-panel-title>
                         <mat-panel-description>
-                            Type your name and age
+                            Add ingredient and amount
                         </mat-panel-description>
                     </mat-expansion-panel-header>
 
                     <mat-form-field>
-                        <input matInput placeholder="First name">
+                        <input matInput placeholder="Ingredient" />
                     </mat-form-field>
 
                     <mat-form-field>
-                        <input matInput placeholder="Age">
+                        <input matInput placeholder="Amount" />
                     </mat-form-field>
+
+                    <button mat-icon-button color="warn">
+                        <mat-icon>delete</mat-icon>
+                    </button>
                 </mat-expansion-panel>
             </mat-accordion>
         </div>
