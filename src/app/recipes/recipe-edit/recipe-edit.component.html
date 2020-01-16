@@ -1,1 +1,48 @@
-<p>recipe-edit works!</p>
+<div class="recipe-edit-container">
+    <div class="recipe-info">
+        <!-- Name -->
+        <div class="recipe-info-name">
+            <label for="name">Name</label>
+            <input type="text"
+                   id="name"
+                   class="recipe-name-input">
+        </div>
+        <!-- Description -->
+        <div class="recipe-info-description">
+            <label for="description">Description</label>
+            <input type="text"
+                   id="description"
+                   class="recipe-description-input">
+        </div>
+        <!-- Image Path -->
+        <div class="recipe-info-image-path">
+            <label for="image-path">Image Path</label>
+            <input type="text"
+                   id="image-path"
+                   class="recipe-image-path-input">
+        </div>
+        <!-- Ingredients -->
+        <div class="recipe-info-ingredients">
+            <mat-accordion>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Personal data
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            Type your name and age
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+
+                    <mat-form-field>
+                        <input matInput placeholder="First name">
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput placeholder="Age">
+                    </mat-form-field>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+    </div>
+</div>
