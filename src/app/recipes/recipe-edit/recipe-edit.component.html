@@ -1,74 +1,94 @@
 <div class="recipe-edit-container">
-    <div class="recipe-info">
-        <!-- Name -->
-        <div class="recipe-info-name">
-            <mat-form-field appearance="outline">
-                <mat-label>Name</mat-label>
-                <input
-                    matInput
-                    class="recipe-name-input"
-                    type="text"
-                    id="name"
-                    placeholder="Name"
-                />
-            </mat-form-field>
-        </div>
-        <!-- Image Path -->
-        <div class="recipe-info-image-path">
-            <mat-form-field>
-                <input
-                    matInput
-                    class="recipe-image-path-input"
-                    type="text"
-                    id="image-path"
-                    placeholder="Image path"
-                />
-            </mat-form-field>
-        </div>
-        <!-- Image -->
-        <div class="recipe-info-image">
-            <!-- <img [src]="recipe.imagePath" alt="Recipe Image"> -->
-            <img src="https://img.buzzfeed.com/video-api-prod/assets/eb44570519264864814264f7f0a5e47a/BFV13909_BakedRatatouille-ThumbTextless1080.jpg" alt="Recipe Image">
-        </div>
-        <!-- Description -->
-        <div class="recipe-info-description">
-            <mat-form-field>
+    <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+        <div class="recipe-info">
+            <!-- Name -->
+            <div class="recipe-info-name">
+                <mat-form-field appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input
+                        matInput
+                        class="recipe-name-input"
+                        type="text"
+                        id="name"
+                        formControlName="name"
+                        placeholder="Name"
+                    />
+                </mat-form-field>
+            </div>
+            <!-- Image Path -->
+            <div class="recipe-info-image-path">
+                <mat-form-field>
+                    <input
+                        matInput
+                        class="recipe-image-path-input"
+                        type="text"
+                        id="image-path"
+                        formControlName="imagePath"
+                        placeholder="Image path"
+                    />
+                </mat-form-field>
+            </div>
+            <!-- Image -->
+            <div class="recipe-info-image">
+                <!-- <img [src]="recipe.imagePath" alt="Recipe Image"> -->
+                <img src="https://img.buzzfeed.com/video-api-prod/assets/eb44570519264864814264f7f0a5e47a/BFV13909_BakedRatatouille-ThumbTextless1080.jpg" alt="Recipe Image">
+            </div>
+            <!-- Description -->
+            <div class="recipe-info-description">
+                <mat-form-field>
                 <textarea
                     matInput
                     class="recipe-description-input"
                     type="text"
                     id="description"
+                    formControlName="description"
                     placeholder="Description"
                     cdkTextareaAutosize
                 ></textarea>
-            </mat-form-field>
+                </mat-form-field>
+            </div>
+            <!-- Ingredients -->
+            <div class="recipe-info-ingredients">
+                <mat-accordion>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Ingredient
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                Add ingredient and amount
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+
+                        <div formArrayName="ingredients">
+                            <div
+                                *ngFor="let ingrdientCtrl of ingredientControls; let i = index"
+                                [formGroupName]="i"
+                            >
+                                <mat-form-field>
+                                    <input
+                                        matInput
+                                        formControlName="name"
+                                        placeholder="Ingredient"/>
+                                </mat-form-field>
+
+                                <mat-form-field>
+                                    <input
+                                        matInput
+                                        formControlName="amount"
+                                        placeholder="Amount" />
+                                </mat-form-field>
+
+                                <button mat-icon-button color="warn">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                            </div>
+                        </div>
+
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
         </div>
-        <!-- Ingredients -->
-        <div class="recipe-info-ingredients">
-            <mat-accordion>
-                <mat-expansion-panel>
-                    <mat-expansion-panel-header>
-                        <mat-panel-title>
-                            Ingredient
-                        </mat-panel-title>
-                        <mat-panel-description>
-                            Add ingredient and amount
-                        </mat-panel-description>
-                    </mat-expansion-panel-header>
-
-                    <mat-form-field>
-                        <input matInput placeholder="Ingredient" />
-                    </mat-form-field>
-
-                    <mat-form-field>
-                        <input matInput placeholder="Amount" />
-                    </mat-form-field>
-
-                    <button mat-icon-button color="warn">
-                        <mat-icon>delete</mat-icon>
-                    </button>
-                </mat-expansion-panel>
-            </mat-accordion>
-        </div>
-    </div>
+        <button mat-stroked-button type="submit">Save</button>
+    </form>
 </div>
