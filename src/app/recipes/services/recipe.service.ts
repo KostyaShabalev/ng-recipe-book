@@ -7,10 +7,6 @@ export class RecipeService {
 
     private recipes: Recipe[] = [];
 
-    public getRecipes() {
-        return this.recipes.slice();
-    }
-
     public setRecipes(recipes: Recipe[]) {
         this.recipes = recipes;
         this.updateRecipeList();

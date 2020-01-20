@@ -53,7 +53,7 @@
                     <mat-expansion-panel>
                         <mat-expansion-panel-header>
                             <mat-panel-title>
-                                Ingredient
+                                Ingredients
                             </mat-panel-title>
                             <mat-panel-description>
                                 Add ingredient and amount
@@ -64,6 +64,7 @@
                             <div
                                 *ngFor="let ingrdientCtrl of ingredientControls; let i = index"
                                 [formGroupName]="i"
+                                class="ingredient-controls"
                             >
                                 <mat-form-field>
                                     <input
@@ -79,16 +80,31 @@
                                         placeholder="Amount" />
                                 </mat-form-field>
 
-                                <button mat-icon-button color="warn">
+                                <button mat-icon-button type="button" color="warn" (click)="onDeleteIngredient(i)">
                                     <mat-icon>delete</mat-icon>
                                 </button>
                             </div>
+                            <button
+                                mat-icon-button
+                                type="button"
+                                class="add-ingredient-button"
+                                (click)="onAddIngredient()">
+                                <mat-icon>add_circle</mat-icon>
+                            </button>
                         </div>
 
                     </mat-expansion-panel>
                 </mat-accordion>
             </div>
         </div>
-        <button mat-stroked-button type="submit">Save</button>
+        <div class="action-buttons">
+            <button
+                mat-stroked-button
+                type="submit"
+                class="button-save"
+                [disabled]="!recipeForm.valid"
+            >Save</button>
+            <button mat-stroked-button type="button" color="warn" (click)="onCancel()">Cancel</button>
+        </div>
     </form>
 </div>

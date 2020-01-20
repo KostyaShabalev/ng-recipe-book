@@ -14,6 +14,17 @@
             .mat-form-field {
                 margin-right: 10px;
             }
+
+            .add-ingredient-button {
+                color: #30af30;
+            }
+        }
+    }
+
+    .action-buttons {
+        margin-bottom: 15px;
+        .button-save {
+            margin-right: 10px;
         }
     }
 }
