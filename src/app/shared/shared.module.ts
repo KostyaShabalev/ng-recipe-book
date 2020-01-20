@@ -8,6 +8,7 @@ import { MaterialModule } from './material/material.module';
 // Components
 import { ShellComponent } from './shell/shell.component';
 import {HttpClientModule} from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 const components = [
     ShellComponent
@@ -19,7 +20,9 @@ const modules = [
     LayoutModule,
     RouterModule,
     FlexLayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
 ];
 
 @NgModule({

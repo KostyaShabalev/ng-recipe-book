@@ -1,1 +1,110 @@
-<p>recipe-edit works!</p>
+<div class="recipe-edit-container">
+    <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+        <div class="recipe-info">
+            <!-- Name -->
+            <div class="recipe-info-name">
+                <mat-form-field appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input
+                        matInput
+                        class="recipe-name-input"
+                        type="text"
+                        id="name"
+                        formControlName="name"
+                        placeholder="Name"
+                    />
+                </mat-form-field>
+            </div>
+            <!-- Image Path -->
+            <div class="recipe-info-image-path">
+                <mat-form-field>
+                    <input
+                        matInput
+                        class="recipe-image-path-input"
+                        type="text"
+                        id="image-path"
+                        formControlName="imagePath"
+                        placeholder="Image path"
+                    />
+                </mat-form-field>
+            </div>
+            <!-- Image -->
+            <div class="recipe-info-image">
+                <!-- <img [src]="recipe.imagePath" alt="Recipe Image"> -->
+                <img src="https://img.buzzfeed.com/video-api-prod/assets/eb44570519264864814264f7f0a5e47a/BFV13909_BakedRatatouille-ThumbTextless1080.jpg" alt="Recipe Image">
+            </div>
+            <!-- Description -->
+            <div class="recipe-info-description">
+                <mat-form-field>
+                <textarea
+                    matInput
+                    class="recipe-description-input"
+                    type="text"
+                    id="description"
+                    formControlName="description"
+                    placeholder="Description"
+                    cdkTextareaAutosize
+                ></textarea>
+                </mat-form-field>
+            </div>
+            <!-- Ingredients -->
+            <div class="recipe-info-ingredients">
+                <mat-accordion>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Ingredients
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                Add ingredient and amount
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+
+                        <div formArrayName="ingredients">
+                            <div
+                                *ngFor="let ingrdientCtrl of ingredientControls; let i = index"
+                                [formGroupName]="i"
+                                class="ingredient-controls"
+                            >
+                                <mat-form-field>
+                                    <input
+                                        matInput
+                                        formControlName="name"
+                                        placeholder="Ingredient"/>
+                                </mat-form-field>
+
+                                <mat-form-field>
+                                    <input
+                                        matInput
+                                        formControlName="amount"
+                                        placeholder="Amount" />
+                                </mat-form-field>
+
+                                <button mat-icon-button type="button" color="warn" (click)="onDeleteIngredient(i)">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                            </div>
+                            <button
+                                mat-icon-button
+                                type="button"
+                                class="add-ingredient-button"
+                                (click)="onAddIngredient()">
+                                <mat-icon>add_circle</mat-icon>
+                            </button>
+                        </div>
+
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+        </div>
+        <div class="action-buttons">
+            <button
+                mat-stroked-button
+                type="submit"
+                class="button-save"
+                [disabled]="!recipeForm.valid"
+            >Save</button>
+            <button mat-stroked-button type="button" color="warn" (click)="onCancel()">Cancel</button>
+        </div>
+    </form>
+</div>
