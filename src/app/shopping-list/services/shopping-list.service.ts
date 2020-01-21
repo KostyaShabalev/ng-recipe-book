@@ -18,15 +18,11 @@ export class ShoppingListService {
         return this.recipeService.updatedRecipeList
             .pipe(
                 map((recipes: Recipe[]) => {
-                    // return recipes.map(recipe => recipe.ingredients);
-                    return recipes;
+                    return recipes.map(recipe => recipe.ingredients);
+                }),
+                map((ingredients: Ingredient[][]) => {
+                    return ingredients.flat();
                 })
             );
     }
-
-    // private packIngredientsIntoArray(recipes) {
-    //     return recipes.map(recipe => {
-    //         return ...recipe.ingredients;
-    //     });
-    // }
 }
