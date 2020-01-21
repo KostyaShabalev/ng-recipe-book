@@ -3,7 +3,7 @@ import {BehaviorSubject} from 'rxjs';
 import {Recipe} from '../../shared/models/recipe.model';
 
 export class RecipeService {
-    public updatedRecipesList = new BehaviorSubject<Recipe[]>([]);
+    public updatedRecipeList = new BehaviorSubject<Recipe[]>([]);
 
     private recipes: Recipe[] = [];
 
@@ -32,6 +32,6 @@ export class RecipeService {
     }
 
     private updateRecipeList() {
-        this.updatedRecipesList.next(this.recipes.slice());
+        this.updatedRecipeList.next(this.recipes.slice());
     }
 }
