@@ -1,0 +1,18 @@
+<a class="recipe-item-link"
+   [routerLink]="[index]"
+   routerLinkActive="active"
+>
+    <mat-card class="recipe-card">
+        <mat-card-content>
+            <div fxFlex="row" >
+                <div fxFlex="70" class="recipe-description">
+                    <mat-card-title>{{ recipe.name }}</mat-card-title>
+                    <span>{{ recipe.description }}</span>
+                </div>
+                <div fxFlex="30" class="img-container">
+                    <img mat-card-sm-image [src]="recipe.imagePath" alt="Recipe Image">
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</a>

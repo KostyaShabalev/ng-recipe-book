@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
+import {RecipeService} from '../recipes/services/recipe.service';
 
 const components = [];
 const modules = [];
-const services = [];
+const services = [RecipeService];
 
 @NgModule({
     declarations: [...components],

@@ -1,0 +1,27 @@
+a.recipe-item-link {
+    text-decoration: none;
+
+    &:hover {
+        cursor: pointer;
+
+        .recipe-card {
+            background-color: #f6f6f6;
+            border-color: #cccccc;
+        }
+    }
+
+    &.active {
+        .recipe-card {
+            background-color: #ebebeb;
+            border-color: #cccccc;
+        }
+    }
+
+    .recipe-card {
+        border: 1px solid #f6f6f6;
+
+        .img-container {
+            text-align: center;
+        }
+    }
+}

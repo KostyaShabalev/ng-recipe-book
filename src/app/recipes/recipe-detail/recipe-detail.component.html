@@ -1,0 +1,29 @@
+<div class="recipe-detail-container">
+    <div class="recipe-image-container">
+        <img [src]="recipe.imagePath" [alt]="recipe.name">
+    </div>
+
+    <div class="recipe-detail">
+        <div class="recipe-detail-info">
+        <h1>{{ recipe.name }}</h1>
+        <p>{{ recipe.description }}</p>
+        </div>
+        <div class="recipe-detail-manage">
+            <button mat-stroked-button [matMenuTriggerFor]="menu">Manage Recipe</button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>To Shopping List</button>
+                <button mat-menu-item (click)="onEditRecipe()">Edit Recipe</button>
+                <button mat-menu-item (click)="onDeleteRecipe()">Delete Recipe</button>
+            </mat-menu>
+        </div>
+    </div>
+
+    <div class="recipe-ingredients">
+        <h3>Ingredients:</h3>
+        <mat-list role="list">
+            <mat-list-item role="listitem" *ngFor="let ingredient of recipe.ingredients">
+                <span>{{ ingredient.name }} - {{ ingredient.amount }}</span>
+            </mat-list-item>
+          </mat-list>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+.recipe-list-view {
+    padding: 0 15px;
+
+    .action-buttons {
+        margin-bottom: 15px;
+        padding: 0 16px;
+    }
+
+    .divider {
+        margin: 0 16px 15px;
+    }
+
+    .recipe-list {
+        .list-item {
+            height: auto;
+            margin-bottom: 10px;
+
+            app-recipe-item {
+                width: 100%;
+            }
+        }
+    }
+}

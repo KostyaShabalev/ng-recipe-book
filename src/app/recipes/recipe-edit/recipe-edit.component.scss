@@ -1,0 +1,30 @@
+.recipe-edit-container {
+    .recipe-info {
+        margin-bottom: 15px;
+
+        .recipe-info-image {
+            margin-bottom: 15px;
+
+            img {
+                max-width: 50%;
+            }
+        }
+
+        .recipe-info-ingredients {
+            .mat-form-field {
+                margin-right: 10px;
+            }
+
+            .add-ingredient-button {
+                color: #30af30;
+            }
+        }
+    }
+
+    .action-buttons {
+        margin-bottom: 15px;
+        .button-save {
+            margin-right: 10px;
+        }
+    }
+}
