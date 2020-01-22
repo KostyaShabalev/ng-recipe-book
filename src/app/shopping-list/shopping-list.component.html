@@ -1,3 +1,29 @@
 <div class="shopping-list-container">
-    
+    <mat-list role="list">
+        <mat-list-item role="listitem" *ngFor="let ingredient of ingredients, let i = index">
+            <mat-card class="ingredient-card">
+                <div class="ingredient-container" fxLayout="row">
+                    <div class="ingredient-name" fxFlex="45">
+                    <span>{{ ingredient.name }}</span>
+                    </div>
+                    <div class="ingredient-amount" fxFlex="45">
+                        <span>{{ ingredient.amount }}</span>
+                    </div>
+                    <div class="action-buttons" fxFlex fxLayout="row" fxLayoutAlign="space-around">
+                        <button mat-icon-button class="increase-ingredient-button">
+                            <mat-icon>add_circle</mat-icon>
+                        </button>
+                        <button mat-icon-button color="warn">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </mat-card>
+        </mat-list-item>
+      </mat-list>
+      <div class="add-ingredient">
+        <button mat-icon-button class="add-ingredient-button">
+            <mat-icon>add_circle</mat-icon>
+        </button>
+      </div>
 </div>

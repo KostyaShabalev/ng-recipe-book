@@ -1,0 +1,42 @@
+.shopping-list-container {
+    padding: 0 10%;
+
+    mat-list-item {
+        height: auto;
+        margin-bottom: 10px;
+
+        .ingredient-card {
+            width: 100%;
+
+            .ingredient-container {
+                display: flex;
+                align-items: center;
+
+                span {
+                    display: inline-block;
+                }
+
+                .increase-ingredient-button {
+                    color: #30af30;
+                }
+            }
+        }
+    }
+
+    .add-ingredient {
+        padding-left: 16px;
+
+        .add-ingredient-button {
+            color: #30af30;
+            width: 50px;
+            height: 50px;
+    
+            mat-icon {
+                font-size: 40px;
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+            }
+        }
+    }
+}

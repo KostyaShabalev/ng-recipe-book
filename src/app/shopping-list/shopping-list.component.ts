@@ -10,20 +10,30 @@ import { Subscription } from "rxjs";
     styleUrls: ["./shopping-list.component.scss"]
 })
 export class ShoppingListComponent implements OnInit {
-    public ingredients: Ingredient[];
-    // public ingredientsSubscription: Subscription;
+    public ingredients: Ingredient[] = [];
+    public ingredientsSubscription: Subscription;
 
     constructor(private shoppingListService: ShoppingListService) {}
 
-    ngOnInit() {
-        this.shoppingListService
+    ngOnInit(): void {
+        this.ingredientsSubscription = this.shoppingListService
             .getIngredientsFromRecipes()
             .subscribe(unfilteredIngredients => {
-                let filteredIngredients: Ingredient[] = [];
-
-                unfilteredIngredients.forEach(ingredient => {
-                   console.log(filteredIngredients.find(filteredIngredient => filteredIngredient.name === ingredient.name));
-                });
+                this.fillIngredientsArrayWithUniqeItems(unfilteredIngredients);
             });
+    }
+
+    private fillIngredientsArrayWithUniqeItems(unfilteredIngredients: Ingredient[]): void {
+        unfilteredIngredients.forEach(unfilteredIngredient => {
+            let duplicatedIngredient = this.ingredients.find(
+                ingredient => ingredient.name === unfilteredIngredient.name
+            );
+
+            if (duplicatedIngredient) {
+                duplicatedIngredient.amount += unfilteredIngredient.amount;
+            } else {
+                this.ingredients.push(unfilteredIngredient);
+            }
+        });
     }
 }
