@@ -19,6 +19,23 @@
                 .increase-ingredient-button {
                     color: #30af30;
                 }
+
+                .decrease-ingredient-button {
+                    color: #FF7E00;
+                }
+            }
+        }
+    }
+
+    .new-ingredient-container {
+        padding: 0 16px;
+        .new-ingredient-card {
+            .mat-form-field {
+                margin-right: 10px;
+            }
+
+            .save-ingredient {
+                color: #30af30;
             }
         }
     }
@@ -30,7 +47,7 @@
             color: #30af30;
             width: 50px;
             height: 50px;
-    
+
             mat-icon {
                 font-size: 40px;
                 width: 40px;

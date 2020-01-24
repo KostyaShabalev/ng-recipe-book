@@ -1,13 +1,13 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 
-import { ShoppingListService } from "./services/shopping-list.service";
-import { Ingredient } from "./../shared/models/ingredient.model";
-import { Subscription } from "rxjs";
+import { ShoppingListService } from './services/shopping-list.service';
+import { Ingredient } from './../shared/models/ingredient.model';
+import { Subscription } from 'rxjs';
 
 @Component({
-    selector: "app-shopping-list",
-    templateUrl: "./shopping-list.component.html",
-    styleUrls: ["./shopping-list.component.scss"]
+    selector: 'app-shopping-list',
+    templateUrl: './shopping-list.component.html',
+    styleUrls: ['./shopping-list.component.scss']
 })
 export class ShoppingListComponent implements OnInit {
     public ingredients: Ingredient[] = [];
@@ -21,6 +21,22 @@ export class ShoppingListComponent implements OnInit {
             .subscribe(unfilteredIngredients => {
                 this.fillIngredientsArrayWithUniqeItems(unfilteredIngredients);
             });
+    }
+
+    public onIncreaseIngredient(index) {
+        this.ingredients[index].amount++;
+    }
+
+    public onDecreaseIngredient(index) {
+        this.ingredients[index].amount--;
+    }
+
+    public onAddIngredient() {
+
+    }
+
+    public onDeleteIngredient(index) {
+        this.ingredients.splice(index, 1);
     }
 
     private fillIngredientsArrayWithUniqeItems(unfilteredIngredients: Ingredient[]): void {
