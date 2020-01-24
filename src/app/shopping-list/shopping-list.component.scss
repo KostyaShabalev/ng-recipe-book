@@ -1,6 +1,17 @@
 .shopping-list-container {
     padding: 0 10%;
 
+   .new-ingredient-container {
+       width: 60%;
+       display: flex;
+       align-items: center;
+
+       .save-ingredient-button {
+           vertical-align: middle;
+           color: #30af30;
+       }
+   }
+
     mat-list-item {
         height: auto;
         margin-bottom: 10px;

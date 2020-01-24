@@ -1,4 +1,40 @@
 <div class="shopping-list-container">
+    <div class="add-ingredient" *ngIf="!isAddIngredientFormActive">
+        <button mat-icon-button class="add-ingredient-button" (click)="onAddIngredient()">
+            <mat-icon>add_circle</mat-icon>
+        </button>
+    </div>
+
+    <div class="new-ingredient-container" *ngIf="isAddIngredientFormActive">
+        <mat-card class="new-ingredient-card" fxLayout="row">
+            <form [formGroup]="ingredientForm" (ngSubmit)="onSubmitForm()">
+                <div class="new-ingredient-name" fxFlex="45">
+                    <mat-form-field>
+                        <input
+                            matInput
+                            formControlName="name"
+                            placeholder="Ingredient"/>
+                    </mat-form-field>
+                </div>
+
+                <div class="new-ingredient-amount" fxFlex="45">
+                    <mat-form-field>
+                        <input
+                            matInput
+                            formControlName="amount"
+                            placeholder="Amount" />
+                    </mat-form-field>
+                </div>
+    
+                <div class="save-ingredient-button" fxFlex fxFlexAlign="center">
+                    <button mat-icon-button type="submit" [disabled]="!ingredientForm.valid">
+                        <mat-icon>check_circle</mat-icon>
+                    </button>
+                </div>
+            </form>
+        </mat-card>
+    </div>
+    
     <mat-list role="list">
         <mat-list-item role="listitem" *ngFor="let ingredient of ingredients, let i = index">
             <mat-card class="ingredient-card">
@@ -10,13 +46,13 @@
                         <span>{{ ingredient.amount }}</span>
                     </div>
                     <div class="action-buttons" fxFlex fxLayout="row" fxLayoutAlign="space-around">
-                        <button mat-icon-button class="increase-ingredient-button" (click)="onIncreaseIngredient(i)">
+                        <button mat-icon-button type="button" class="increase-ingredient-button" (click)="onIncreaseIngredient(i)">
                             <mat-icon>add_circle</mat-icon>
                         </button>
-                        <button mat-icon-button class="decrease-ingredient-button" (click)="onDecreaseIngredient(i)">
+                        <button mat-icon-button type="button" class="decrease-ingredient-button" (click)="onDecreaseIngredient(i)">
                             <mat-icon>remove_circle</mat-icon>
                         </button>
-                        <button mat-icon-button color="warn" (click)="onDeleteIngredient(i)">
+                        <button mat-icon-button color="warn" type="button" (click)="onDeleteIngredient(i)">
                             <mat-icon>delete</mat-icon>
                         </button>
                     </div>
@@ -24,40 +60,4 @@
             </mat-card>
         </mat-list-item>
     </mat-list>
-
-    <div class="new-ingredient-container">
-        <mat-card class="new-ingredient-card" fxLayout="row">
-            <mat-form-field>
-                <!--            <input-->
-                <!--                matInput-->
-                <!--                formControlName="name"-->
-                <!--                placeholder="Ingredient"/>-->
-                <input
-                    matInput
-                    placeholder="Ingredient"/>
-            </mat-form-field>
-
-            <mat-form-field>
-                <!--            <input-->
-                <!--                matInput-->
-                <!--                formControlName="amount"-->
-                <!--                placeholder="Amount" />-->
-                <input
-                    matInput
-                    placeholder="Amount" />
-            </mat-form-field>
-
-            <div class="action-buttons" fxFlex fxLayout="row" fxLayoutAlign="space-around">
-                <button mat-icon-button color="warn" class="save-ingredient" (click)="onSaveIngredient()">
-                    <mat-icon>check_circle</mat-icon>
-                </button>
-            </div>
-        </mat-card>
-    </div>
-
-    <div class="add-ingredient">
-        <button mat-icon-button class="add-ingredient-button">
-            <mat-icon>add_circle</mat-icon>
-        </button>
-    </div>
 </div>
