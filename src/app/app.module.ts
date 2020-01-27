@@ -7,10 +7,9 @@ import { SharedModule } from './shared/shared.module';
 import { ReipesModule } from './recipes/recipes.module';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { AppRoutingModule } from './app-routing.module';
+import { AuthModule } from './auth/auth.module';
 // Components
 import { AppComponent } from './app.component';
-
-// import {DataStorageService} from './shared/services/data-storage.service'; //TODO: remove
 
 const components = [
     AppComponent
@@ -23,6 +22,7 @@ const modules = [
     SharedModule,
     ReipesModule,
     ShoppingListModule,
+    AuthModule,
     CoreModule
 ];
 

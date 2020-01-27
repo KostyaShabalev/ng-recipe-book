@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
-
 import { RouterModule, Routes } from '@angular/router';
-import { RecipesComponent } from './recipes/recipes.component';
+
+import { AuthComponent } from './auth/auth.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: '/recipes', pathMatch: 'full' }
+    { path: '', redirectTo: '/recipes', pathMatch: 'full' },
+    { path: 'auth', component: AuthComponent}
 ];
 
 @NgModule({
