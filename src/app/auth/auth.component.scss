@@ -2,6 +2,11 @@
     padding: 10% 25%;
 
     .auth-card {
-        
+        .google-signin-button {
+            img {
+                width: 20px;
+                padding-bottom: 2px;
+            }
+        }
     }
 }

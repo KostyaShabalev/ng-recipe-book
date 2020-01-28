@@ -1,1 +1,52 @@
-<p>email-login works!</p>
+<div class="email-login-container">
+    <!-- Login Form -->
+    <form class="email-login-form" fxLayout="column">
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input
+                type="signin-email"
+                matInput
+                placeholder="Email"
+            >
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input
+                type="signin-password"
+                matInput
+                placeholder="Password"
+            >
+        </mat-form-field>
+
+        <button
+            mat-raised-button
+            type="submit"
+        >
+        Login</button>
+    </form>
+    <!-- Register Form -->
+    <form class="email-login-form" fxLayout="column">
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input
+                type="signup-email"
+                matInput
+                placeholder="Email"
+            >
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input
+                type="signup-password"
+                matInput
+                placeholder="Password"
+            >
+        </mat-form-field>
+
+        <button
+            mat-raised-button
+            type="submit"
+        >
+        Register</button>
+    </form>
+</div>
