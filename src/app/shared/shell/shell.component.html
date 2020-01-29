@@ -60,7 +60,7 @@
             <span class="fill-space"></span>
 
             <div class="nav-links" *ngIf="!(isHandset$ | async)">
-                <a mat-button>Login</a>
+                <a mat-button routerLink="/auth" routerLinkActive="active">Login</a>
             </div>
 
             <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Icon button with a menu">
@@ -69,7 +69,7 @@
 
             <mat-menu #menu="matMenu">
                 <a mat-menu-item href="#">
-                    <span>Menu item #1</span>
+                    <span>Logout</span>
                 </a>
                 <a mat-menu-item href="#">
                     <span>Menu item #2</span>
