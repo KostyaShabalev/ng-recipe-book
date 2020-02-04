@@ -1,6 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+
+import { AuthService } from './../services/auth.service';
+import { AuthResponseData } from './../models/authResponseData';
 
 @Component({
     selector: 'app-email-login',
@@ -11,9 +15,11 @@ export class EmailLoginComponent implements OnInit {
     public isLoginMode = true;
     public isLoading = false;
     public authForm: FormGroup;
+    public authObservable: Observable<AuthResponseData>;
 
     constructor(
-        private fireAuth: AngularFireAuth
+        private authService: AuthService,
+        private router: Router
     ) {}
 
     get isPasswordMatch(): boolean {
@@ -30,9 +36,10 @@ export class EmailLoginComponent implements OnInit {
 
     public onSwitchMode(): void {
         this.isLoginMode = !this.isLoginMode;
+        this.authForm.reset();
     }
 
-    public async onSubmitForm(): Promise<any> {
+    public onSubmitForm(): void {
         const email = this.authForm.value.email;
         const password = this.authForm.value.password;
 
@@ -40,10 +47,15 @@ export class EmailLoginComponent implements OnInit {
 
         try {
             if (this.isLoginMode) {
-                await this.fireAuth.auth.signInWithEmailAndPassword(email, password);
+                this.authObservable = this.authService.signIn(email, password);
             } else {
-                await this.fireAuth.auth.createUserWithEmailAndPassword(email, password);
+                this.authObservable = this.authService.signUp(email, password);
             }
+
+            this.authObservable.subscribe(userInfo => {
+                this.authForm.reset();
+                this.router.navigate(['/recipes']);
+            });
         } catch (error) {
             console.log(error);
         }
