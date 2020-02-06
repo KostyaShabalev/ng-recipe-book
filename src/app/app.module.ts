@@ -1,9 +1,11 @@
+import { AuthInterceptorService } from './auth/services/auth-interceptor.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { environment } from './../environments/environment';
 // Modules
@@ -41,7 +43,13 @@ const modules = [
     imports: [
         ...modules
     ],
-    providers: [],
+    providers: [
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: AuthInterceptorService,
+            multi: true
+        }
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
