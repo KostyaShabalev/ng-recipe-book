@@ -93,7 +93,7 @@
             </div>
 
             <div class="nav-links" *ngIf="!(isHandset$ | async) && isAuthenticated">
-                <a mat-button routerLink="/auth" routerLinkActive="active">Logout</a>
+                <a mat-button routerLink="/auth" routerLinkActive="active" (click)="onLogout()">Logout</a>
             </div>
 
             <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Icon button with a menu">

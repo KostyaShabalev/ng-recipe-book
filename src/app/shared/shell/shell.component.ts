@@ -34,4 +34,8 @@ export class ShellComponent implements OnInit, OnDestroy {
     public ngOnDestroy(): void {
         this.userSubscription.unsubscribe();
     }
+
+    public onLogout(): void {
+        this.authService.logout();
+    }
 }
