@@ -1,13 +1,11 @@
 <div class="email-login-container">
-    <button (click)="onSwitchMode()">Switch</button>
-    
     <form
         [formGroup]="authForm"
         class="email-auth-form"
         fxLayout="column"
         (ngSubmit)="onSubmitForm()"
     >
-        
+
         <mat-form-field appearance="outline">
             <mat-label>Email</mat-label>
             <input
@@ -47,5 +45,13 @@
         </button>
     </form>
 
-
+    <div class="switch-button-container">
+        <button
+            mat-stroked-button
+            type="button"
+            (click)="onSwitchMode()"
+        >
+            {{ !isLoginMode ? 'Login' : 'Register'}}
+        </button>
+    </div>
 </div>

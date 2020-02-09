@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable, Subscription } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -10,6 +10,8 @@ import { AuthService } from 'src/app/auth/services/auth.service';
     styleUrls: ['shell.component.scss']
 })
 export class ShellComponent implements OnInit, OnDestroy {
+    @ViewChild('drawer', {static: false}) drawer: any;
+
     public isAuthenticated = false;
     private userSubscription: Subscription;
 
@@ -36,6 +38,9 @@ export class ShellComponent implements OnInit, OnDestroy {
     }
 
     public onLogout(): void {
+        if (this.drawer.opened) {
+            this.drawer.close();
+        }
         this.authService.logout();
     }
 }
