@@ -30,8 +30,7 @@
             </div>
             <!-- Image -->
             <div class="recipe-info-image">
-                <!-- <img [src]="recipe.imagePath" alt="Recipe Image"> -->
-                <img src="https://img.buzzfeed.com/video-api-prod/assets/eb44570519264864814264f7f0a5e47a/BFV13909_BakedRatatouille-ThumbTextless1080.jpg" alt="Recipe Image">
+                 <img [src]="recipeForm.value.imagePath">
             </div>
             <!-- Description -->
             <div class="recipe-info-description">
@@ -47,7 +46,7 @@
                 ></textarea>
                 </mat-form-field>
             </div>
-            <!-- Ingredients -->
+             Ingredients
             <div class="recipe-info-ingredients">
                 <mat-accordion>
                     <mat-expansion-panel>

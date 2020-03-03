@@ -1,0 +1,53 @@
+.auth-main-container {
+    .auth-card {
+        margin: 100px auto;
+        text-align: center;
+        width: 460px;
+        max-width: 460px;
+        padding-left: 2.5em;
+        padding-right: 2.5em;
+
+        .logo {
+            font-size: 2em;
+
+            h1 {
+                margin: 0.4em;
+            }
+        }
+
+        .google-signin-button {
+            margin-bottom: 15px;
+
+            img {
+                width: 20px;
+                padding-bottom: 2px;
+            }
+        }
+
+        .horizontal-devider {
+            position: relative;
+
+            &:before {
+                content: '';
+                display: block;
+                width: 45%;
+                height: 1px;
+                background: #000;
+                position: absolute;
+                left: 0;
+                top: 50%;
+            }
+
+            &:after {
+                content: '';
+                display: block;
+                width: 45%;
+                height: 1px;
+                background: #000;
+                position: absolute;
+                right: 0;
+                top: 50%;
+            }
+        }
+    }
+}

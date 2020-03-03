@@ -24,14 +24,33 @@
         </mat-toolbar>
 
         <mat-nav-list>
-            <a mat-list-item
-               routerLink="/recipes"
-               routerLinkActive="active"
-               [routerLinkActiveOptions]="{exact: true}"
-               (click)="drawer.close()"
+            <a
+                mat-list-item
+                *ngIf="isAuthenticated"
+                routerLink="/recipes"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}"
+                (click)="drawer.close()"
             >Recipes</a>
-            <a mat-list-item routerLink="/shopping-list" routerLinkActive="active" (click)="drawer.close()">Shopping List</a>
-            <a mat-list-item routerLink="/login" routerLinkActive="active" (click)="drawer.close()">Login</a>
+            <a mat-list-item
+               *ngIf="isAuthenticated"
+               routerLink="/shopping-list"
+               routerLinkActive="active"
+               (click)="drawer.close()">Shopping List</a>
+            <a
+                mat-list-item
+                *ngIf="!isAuthenticated"
+                routerLink="/auth"
+                routerLinkActive="active"
+                (click)="drawer.close()"
+            >Login</a>
+            <a
+                mat-list-item
+                *ngIf="isAuthenticated"
+                routerLink="/auth"
+                routerLinkActive="active"
+                (click)="onLogout()"
+            >Logout</a>
         </mat-nav-list>
 
     </mat-sidenav>
@@ -53,14 +72,28 @@
             <span class="logo">🍔 Recipe Book</span>
 
             <div class="nav-links" *ngIf="!(isHandset$ | async)">
-                <a mat-button routerLink="/recipes" routerLinkActive="active">Recipes</a>
-                <a mat-button routerLink="/shopping-list" routerLinkActive="active">Shopping List</a>
+                <a
+                    mat-button
+                    *ngIf="isAuthenticated"
+                    routerLink="/recipes"
+                    routerLinkActive="active"
+                >Recipes</a>
+                <a
+                    mat-button
+                    *ngIf="isAuthenticated"
+                    routerLink="/shopping-list"
+                    routerLinkActive="active"
+                >Shopping List</a>
             </div>
 
             <span class="fill-space"></span>
 
-            <div class="nav-links" *ngIf="!(isHandset$ | async)">
-                <a mat-button>Login</a>
+            <div class="nav-links" *ngIf="!(isHandset$ | async) && !isAuthenticated">
+                <a mat-button routerLink="/auth" routerLinkActive="active">Login</a>
+            </div>
+
+            <div class="nav-links" *ngIf="!(isHandset$ | async) && isAuthenticated">
+                <a mat-button routerLink="/auth" routerLinkActive="active" (click)="onLogout()">Logout</a>
             </div>
 
             <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Icon button with a menu">
@@ -68,14 +101,11 @@
             </button>
 
             <mat-menu #menu="matMenu">
-                <a mat-menu-item href="#">
+                <a mat-menu-item>
                     <span>Menu item #1</span>
                 </a>
-                <a mat-menu-item href="#">
+                <a mat-menu-item>
                     <span>Menu item #2</span>
-                </a>
-                <a mat-menu-item href="#">
-                    <span>Menu item #3</span>
                 </a>
             </mat-menu>
 

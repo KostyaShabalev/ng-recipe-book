@@ -1,14 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
     selector: 'app-shell',
     templateUrl: 'shell.component.html',
     styleUrls: ['shell.component.scss']
 })
-export class ShellComponent {
+export class ShellComponent implements OnInit, OnDestroy {
+    @ViewChild('drawer', {static: false}) drawer: any;
+
+    public isAuthenticated = false;
+    private userSubscription: Subscription;
 
     public isHandset$: Observable<boolean> = this.breakpointObserver.observe([Breakpoints.Handset])
         .pipe(
@@ -16,5 +21,26 @@ export class ShellComponent {
             shareReplay()
         );
 
-    constructor(private breakpointObserver: BreakpointObserver) {}
+    constructor(
+        private breakpointObserver: BreakpointObserver,
+        private authService: AuthService
+        ) {}
+
+    public ngOnInit(): void {
+        this.userSubscription = this.authService.currentUser
+            .subscribe(user => {
+                this.isAuthenticated = user ? true : false;
+            });
+    }
+
+    public ngOnDestroy(): void {
+        this.userSubscription.unsubscribe();
+    }
+
+    public onLogout(): void {
+        if (this.drawer.opened) {
+            this.drawer.close();
+        }
+        this.authService.logout();
+    }
 }

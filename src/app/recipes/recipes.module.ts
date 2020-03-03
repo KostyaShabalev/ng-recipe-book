@@ -11,7 +11,11 @@ import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import { RecipeItemComponent } from './recipe-list/recipe-item/recipe-item.component';
 
 const components = [
-    RecipesComponent
+    RecipesComponent,
+    RecipeListComponent,
+    RecipeEditComponent,
+    RecipeDetailComponent,
+    RecipeItemComponent
 ];
 
 const modules = [
@@ -21,7 +25,7 @@ const modules = [
 ];
 
 @NgModule({
-    declarations: [...components, RecipeListComponent, RecipeEditComponent, RecipeDetailComponent, RecipeItemComponent],
+    declarations: [...components],
     imports: [...modules]
 })
 export class ReipesModule {}
